@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ==== TITULO DEL DOCUMENTO ==== -->
+    <title>BlocKey | Perfil de usuario</title>
+
+    <!-- ==== FAVICONS ==== -->
+
+    <!-- ==== HOJAS DE ESTILOS ==== -->
+    <!-- --- Hojas de estilos por defecto--- -->
+    <link href="{{ url_for('static', filename='lib/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- --- Hojas de estilo específicas --- -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <!-- --- Hojas de estilo principal --- -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <link id="color-scheme" href="{{ url_for('static', filename='css/colors/default.css') }}" rel="stylesheet">
+  </head>
+
+  <!-- ==== CUERPO PRINCIPAL ==== -->
+  <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+    <main>
+      <div class="page-loader">
+        <div class="loader">Loading...</div>
+      </div>
+
+      <!-- --- Menú de navegacion --- -->
+      <nav class="navbar navbar-custom navbar-fixed-top navbar-transparent" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="{{ url_for('index') }}">BlocKey</a>
+          </div>
+          <div class="collapse navbar-collapse" id="custom-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="button"><a class="button" href="{{ url_for('security_box') }}"><img src="{{ url_for('static', filename='images/security_box.png') }}"/>Mi caja fuerte</a></li>
+              <li class="button"><a class="button" href="{{ url_for('security') }}"><img src="{{ url_for('static', filename='images/secure.png') }}"/>Seguridad de mis contraseñas</a></li>
+              <li class="button"><a class="button" href="{{ url_for('faq') }}"><img src="{{ url_for('static', filename='images/faq.png') }}"/>Preguntas Frecuentes</a></li>
+              <li class="button"><a class="button" href="{{ url_for('contact') }}"><img src="{{ url_for('static', filename='images/contact.png') }}"/>Contacto</a></li>
+              <li class="button"><a class="button" href="{{ url_for('profile') }}"><img src="{{ url_for('static', filename='images/user.png') }}"/>Mi perfil</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- --- Bloque de encabezado --- -->
+        <section class="module bg-dark-60 faq-page-header" data-background="{{ url_for('static', filename='images/background.png') }}">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6 col-sm-offset-3">
+                <h2 class="module-title font-alt">Mi perfil</h2>
+                <div class="module-subtitle font-serif"> Mis datos personales.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      <!-- --- Bloque principal --- -->
+      <section class="module" id="alt-features">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6 col-md-6 col-lg-6">
+                <div><img src="{{ url_for('static', filename='images/girl.png') }}"/></div>
+              </div>
+              <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="alt-features-item">
+                  <h3 class="alt-features-title font-alt">Rosa</h3>
+                  <h3 class="alt-features-title font-alt">Gascón Fernández</h3>
+                  <p> Correo electrónico: rosa.gasconfernandez@gmail.com</p>
+                  <p> Contraseña: ********</p>
+                  <a class="btn btn-block btn-round btn-b" href="{{ url_for('edit_profile') }}">Editar mi perfil</a>
+                  <a class="btn btn-block btn-round btn-b" href="{{ url_for('index') }}">Cerrar sesión</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      <!-- --- Footer --- -->
+        <div class="module-small bg-dark">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="widget">
+                  <h5 class="widget-title font-alt">Sobre BlocKey</h5>
+                  <p>BlocKey es un gestor de contraseñas inclusivo, diseñado para almacenar de una forma segura las contraseñas de nuestras cuentas.</p>
+                  <p>Podrás crear contraseñas seguras sin miedo a que se te olviden.</p>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="widget">
+                  <h5 class="widget-title font-alt">Contáctanos</h5>
+                  <ul class="icon-list">
+                    <li><a href="{{ url_for('contact') }}"> Formulario de contacto</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="widget">
+                  <h5 class="widget-title font-alt">Política de privacidad</h5>
+                  <ul class="icon-list">
+                    <li><a href="{{ url_for('privacy') }}">Términos y condiciones</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="widget">
+                  <h5 class="widget-title font-alt">Preguntas frecuentes</h5>
+                  <ul class="icon-list">
+                    <li><a href="{{ url_for('faq') }}">¿Para qué sirve BlocKey?</a></li>
+                    <li><a href="{{ url_for('faq') }}">¿Cómo puedo registrarme en BlocKey?</a></li>
+                    <li><a href="{{ url_for('faq') }}">¿Cómo puedo crear un registro con una nueva contraseña?</a></li>
+                    <li><a href="{{ url_for('faq') }}">¿Cuánto de seguras son mis contraseñas?</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="divider-d">
+        <footer class="footer bg-dark">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="copyright font-alt">&copy; 2022&nbsp;<a href="{{ url_for('index') }}">BlocKey</a>, Todos los derechos reservados</p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+      <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
+    </main>
+
+    <!-- ==== JavaScripts ==== -->
+    <script src="{{ url_for('static', filename='lib/jquery/dist/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/wow/dist/wow.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/isotope/dist/isotope.pkgd.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/imagesloaded/imagesloaded.pkgd.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/flexslider/jquery.flexslider.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/owl.carousel/dist/owl.carousel.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/smoothscroll.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/magnific-popup/dist/jquery.magnific-popup.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/simple-text-rotator/jquery.simple-text-rotator.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plugins.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  </body>
+</html>
