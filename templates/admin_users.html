@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<!-- ==== TITULO DEL DOCUMENTO ==== -->
+    	<title> BlocKey | Listado de usuarios </title>
+
+    	<!-- ==== FAVICONS ==== -->
+    
+
+    	<!-- ==== HOJAS DE ESTILOS ==== -->
+    	<!-- --- Hojas de estilo principal --- -->
+    	<link href="static/css/style.css" rel="stylesheet">
+
+        <!-- --- Tipografía --- -->
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+	</head>
+
+    <!-- ==== CUERPO PRINCIPAL ==== -->
+    <body>
+
+    	<!-- --- Menú de navegación --- -->
+    	<nav class="nav">
+            <a id="inicio" href="index.html"> BlocKey</a>
+      		<ul>
+       			<li>
+                    <div><img src="static/images/admin_perfil.png"></div>
+                    <a href="admin_profile.html">Mi perfil</a>
+                </li>
+                <li>
+                    <div><img src="static/images/cerrar-sesion.png"></div>
+                    <a onclick="confirmacionSalida()">Cerrar sesión</a>
+                    <div id="cerrar_sesion" class="popup_cierre_sesion">
+                        <p>¿Estás seguro de que quieres cerrar sesión?</p>
+                        <button id="salir" onclick="closeConfirmacionSalidaSi()">¡Sí!</button>
+                        <button onclick="closeConfirmacionSalidaNo()">Cancelar</button>
+                    </div>
+                </li>
+      		</ul>
+    	</nav>
+
+    	<!-- --- Bloque de encabezado --- -->
+		<header class="header-content">
+                <h1>Listado de usuarios</h1>
+                <h2>Aquí encontrarás todos los usuarios que tienen una cuenta en BlocKey.</h2>
+        </header>
+
+    	<!-- --- Bloque principal --- -->
+        <div class="container">
+            <div class="content">
+                <table id="tabla">
+                    <thead>
+                        <tr>
+                            <th>Usuario de BlocKey</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       <script>
+                            if(sessionStorage['valorEmail'] != undefined) {
+                                document.write('<tr><td>'+sessionStorage['valorEmail'].toString()+'</td>');
+                                document.write('<td><button onclick=accionBoton1(this)>Resetear Contraseña</button></td><td><button onclick="accionBoton2(this)">Eliminar</button></td>');
+                             }
+                             
+                            
+                         </script>
+                    </tbody>
+                  </table>
+                <button onclick="agregarFila()">Añadir usuario</button>
+            </div>
+
+        	<!-- --- Footer --- -->
+            <footer>
+                <p>&copy; 2023&nbsp;<a href="index.html">BlocKey</a>, Todos los derechos reservados</p>
+        	</footer>
+        </div>
+    </body>
+</html>

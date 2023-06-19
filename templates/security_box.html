@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<!-- ==== TITULO DEL DOCUMENTO ==== -->
+    	<title> BlocKey | Mi caja fuerte </title>
+
+    	<!-- ==== FAVICONS ==== -->
+    
+
+    	<!-- ==== HOJAS DE ESTILOS ==== -->
+    	<!-- --- Hojas de estilo principal --- -->
+    	<link href="static/css/style.css" rel="stylesheet">
+
+        <!-- --- Tipografía --- -->
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+        <!-- --- JavaScript --- -->
+        <script src="static/js/function.js"></script>
+	</head>
+
+    <!-- ==== CUERPO PRINCIPAL ==== -->
+    <body>
+
+    	<!-- --- Menú de navegación --- -->
+    	<nav class="nav">
+      		<a id="inicio" href="index.html"> BlocKey</a>
+      		<ul>
+        		<li>
+                    <div><img src="static/images/usuario.png"></div>
+                    <a href="profile.html">Mi perfil</a>
+                </li>
+                <li>
+                    <div><img src="static/images/escudo.png"></div>
+                    <a href="security.html">Seguridad de mis contraseñas</a>
+                </li>
+                <li>
+                    <div><img src="static/images/support.png"></div>
+                    <a href="support.html">Ayuda</a>
+                </li>
+                <li>
+                    <div><img src="static/images/cerrar-sesion.png"></div>
+                    <a onclick="confirmacionSalida()">Cerrar sesión</a>
+                    <div id="cerrar_sesion" class="popup_cierre_sesion">
+                        <p>¿Estás seguro de que quieres cerrar sesión?</p>
+                        <button id="salir" onclick="closeConfirmacionSalidaSi()">¡Sí!</button>
+                        <button onclick="closeConfirmacionSalidaNo()">Cancelar</button>
+                    </div>
+                </li>
+      		</ul>
+    	</nav>
+
+    	<!-- --- Bloque de encabezado --- -->
+		<header class="header-content">
+                <h1>Mi caja fuerte</h1>
+                <h2>Todas mis contraseñas y mi información personal guardadas.</h2>
+        </header>
+
+    	<!-- --- Bloque principal --- -->
+        <div class="container">
+            <div class="content">
+                <div class="button-container">
+                    <div class="button-container">
+                        <button type="button" onclick="openAddPsw()">Añadir contraseña</button>
+                        <button type="button" onclick="openAddInf()">Añadir información</button>
+                    </div>
+                    <table id="tabla">
+                        <thead>
+                          <tr>
+                            <th>Tipo</th>
+                            <th>Información</th>
+                            <th>Fecha de registro</th>
+                            <th>Edición</th>
+                            <th>Borrar</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                         <script>
+                            if(sessionStorage['typeValue1'] != undefined) {
+                                document.write('<tr><td>'+sessionStorage['typeValue1'].toString()+'</td><td>'+sessionStorage['usersValue1'].toString()+'</td>');
+                                document.write('<td>15/06/2023</td><td><button onclick=editarReg(1)>Editar registro</button></td><td><button onclick=borrarReg(1)>Borrar registro</button></td>');
+                             }
+                             
+                             if(sessionStorage['typeValue2'] != undefined) {
+                                document.write('<tr><td>'+sessionStorage['typeValue2']+'</td><td>'+sessionStorage['usersValue2']+'</td>');
+                                document.write('<td>15/06/2023</td><td><button onclick=editarReg(2)>Editar registro</button></td><td><button onclick=borrarReg(2)>Borrar registro</button></td>');
+                             }
+                             
+                             if(sessionStorage['typeValue3'] != undefined) {
+                                document.write('<tr><td>'+sessionStorage['typeValue3']+'</td><td>'+sessionStorage['usersValue3']+'</td>');
+                                document.write('<td>15/06/2023</td><td><button onclick=editarReg(3)>Editar registro</button></td><td><button onclick=borrarReg(3)>Borrar registro</button></td>');
+                             }
+                            
+                             if(sessionStorage['typeValue4'] != undefined) {
+                                document.write('<tr><td>'+sessionStorage['typeValue4']+'</td><td>'+sessionStorage['usersValue4']+'</td>');
+                                document.write('<td>15/06/2023</td><td><button onclick=editarReg(4)>Editar registro</button></td><td><button onclick=borrarReg(4)>Borrar registro</button></td>');
+                             }
+
+                            
+                         </script>
+                            
+                          </tr>
+                        </tbody>
+                    </table>
+                    <div id="AddPsw" class="popup">
+                        <h2>Añadir contraseña-usuario</h2>
+                        <form id='fPass' name='fPass'>
+                            <div class="form-group">
+                                <label for="email">Nombre del registro:</label>
+                                <input type="text" id="name_register" name="username">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Contraseña:</label>
+                                <input type="password" id="password" name="password">
+                                <button><img src="static/images/aleatorio.png" onclick="desplegarContrasenaAleatoria()">Generar contraseña</button>
+                                <div id="caracteristicas"></div>
+                            </div>
+                        </form>
+                        <button onclick="addrow_AddPsw(document.fPass.name_register.value, document.fPass.password.value)">Guardar cambios</button>
+                        <button onclick="closeAddPsw()">Cancelar</button>
+                    </div>
+                    <div id="AddInf" class="popup">
+                        <h2>Añadir registro</h2>
+                        <form id='fAdd' name='fAdd'>
+                            <div class="form-group">
+                                <label for="email">Nombre del registro:</label>
+                                <input type="text" id="name_register" name="name_register" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Informacion:</label>
+                                <input type="text" id="password" name="password" required>
+                            </div>
+                        </form>
+                        <button onclick="addrow_AddInf(document.fAdd.name_register.value, document.fAdd.password.value)">Guardar cambios</button>
+                        <button onclick="closeAddInf()">Cancelar</button>
+                    </div>
+                     <div id="EditInf" class="popup">
+                        <h2>Añadir registro</h2>
+                        <form id='fEdit' name='fEdit'>
+                            <div class="form-group">
+                                <label for="email">Nombre del registro:</label>
+                                <input type="text" id="name_register_ed" name="name_register_ed" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Contraseña:</label>
+                                <input type="text" id="password_ed" name="password_ed" required>
+                            </div>
+                              <input type="text" id="pos" name="pos" hidden>
+                        </form>
+                        <button onclick="editRegInf()">Guardar cambios</button>
+                        <button onclick="closeAddInf()">Cancelar</button>
+                    </div>
+                </div>
+        </div>
+
+        	<!-- --- Footer --- -->
+            <footer>
+                <p>&copy; 2023&nbsp;<a href="index.html">BlocKey</a>, Todos los derechos reservados</p>
+        	</footer>
+        </div>
+    </body>
+</html>

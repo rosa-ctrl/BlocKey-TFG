@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<!-- ==== TITULO DEL DOCUMENTO ==== -->
-    	<title> BlocKey | Mi perfil de usuario</title>
+    	<title> BlocKey | Análisis de seguridad </title>
 
     	<!-- ==== FAVICONS ==== -->
     
@@ -14,25 +14,24 @@
 
         <!-- --- Tipografía --- -->
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-
         <!-- --- JavaScript --- -->
         <script src="static/js/function.js"></script>
 	</head>
 
     <!-- ==== CUERPO PRINCIPAL ==== -->
-    <body onload="onLoadProfile();">
+    <body onload="calculateBlockey()">
 
     	<!-- --- Menú de navegación --- -->
     	<nav class="nav">
             <a id="inicio" href="index.html"> BlocKey</a>
       		<ul>
         		<li>
+                    <div><img src="static/images/usuario.png"></div>
+                    <a href="profile.html">Mi perfil</a>
+                </li>
+                <li>
                     <div><img src="static/images/caja-fuerte.png"></div>
                     <a href="security_box.html">Mi caja fuerte</a>
-                </li>
-       			<li>
-                    <div><img src="static/images/escudo.png"></div>
-                    <a href="security.html">Seguridad de mis contraseñas</a>
                 </li>
                 <li>
                     <div><img src="static/images/support.png"></div>
@@ -52,45 +51,40 @@
 
     	<!-- --- Bloque de encabezado --- -->
 		<header class="header-content">
-                <h1>Perfil</h1>
-                <h2>Mis datos personales</h2>
+                <h1>Análisis de seguridad</h1>
+                <h2>Nivel de seguridad de las contraseñas que tengo almacenadas en BlocKey</h2>
         </header>
 
     	<!-- --- Bloque principal --- -->
         <div class="container">
+            <form id="fValores" name="fValores">
             <div class="content">
-                <div class="profile" id="profile">
-                <form id="display1" name='display1'>
-                    <img src="static/images/usuario-perfil.png" alt="Foto de perfil">
-                    <div class="form-group">
-                        <label for="email1">Correo electrónico:</label>
-                        <input type="text" id="username1" name="username1">
-                    </div>
-                    <div class="form-group">
-                        <label for="password1">Contraseña:</label>
-                        <input type="text" id="password1" name="password1">
-                    </div>
-                </form>
-
-            </div>
-                <button id="botonCentrado" onclick="openEditProfile()">Editar perfil</button>
-                <div id="EditProfile" class="popup">
-                    <h2>Editar perfil</h2>
-                    <form id="edit1" name="edit1">
-                        <div class="form-group">
-                            <label for="email">Correo electrónico:</label>
-                            <input type="text" id="username" name="username" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Contraseña:</label>
-                            <input type="password" id="password" name="password" required>
-                        </div>
-                    </form>
-                    <button onclick="guardarUser(document.edit1.username.value,document.edit1.password.value); location.reload();">Guardar cambios</button>
-                    <button onclick="closeEditProfile()">Cancelar</button>
+                <div class="columna">
+                    <div><img src="static/images/reused.png"></div>
+                    <h3>Contraseñas repetidas</h3>
+                    <input type="text" id="numRepes" name="numRepes" readonly/>
+                    <p>Número de contraseñas que se están utilizando en dos o más cuentas a la vez.</p>
+                </div>
+                <div class="columna">
+                    <div><img src="static/images/debility.png"></div>
+                    <h3>Contraseñas débiles</h3>
+                    <input type="text" id="numInseguras" name="numInseguras" readonly/>
+                    <p>Número de contraseñas que no son lo suficientemente seguras como para evitar el robo de información.</p>
+                </div>
+                <div class="columna">
+                    <div><img src="static/images/unique.png"></div>
+                    <h3>Contraseñas únicas</h3>
+                    <input type="text" id="numUnicas" name="numUnicas" readonly/>
+                    <p>Número de contraseñas que solo son usadas en una cuenta y que son seguras.</p>
+                </div>
+                <div class="columna">
+                    <div><img src="static/images/all_passwords.png"></div>
+                    <h3>Total de contraseñas</h3>
+                     <input type="text" id="numTotal" name="numTotal" readonly/>
+                   <p>Número total de contraseñas que tienes almacenadas en tu caja fuerte de BlocKey.</p>
                 </div>
             </div>
-
+            </form>
         	<!-- --- Footer --- -->
             <footer>
                 <p>&copy; 2023&nbsp;<a href="index.html">BlocKey</a>, Todos los derechos reservados</p>

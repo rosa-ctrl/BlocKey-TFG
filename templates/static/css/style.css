@@ -1,0 +1,300 @@
+html {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -ms-overflow-style: scrollbar;
+}
+
+body{
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 50%;
+  padding: 8px;
+  border: 1px solid #00009b;
+  border-radius: 4px;
+}
+
+.question {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.answer {
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 12px 20px;
+  background-color: #00009b;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+#botonCentrado {
+  padding: 12px 20px;
+  background-color: #00009b;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  position: absolute;
+  margin-top: 45px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+button:hover {
+  background-color: #00003e;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+p {
+  font-size: 20px;
+}
+
+header{
+  text-align: center;
+  background-image: url('images/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 200px;
+}
+
+.header-content {
+  text-align: center;    
+  color: black;
+  padding: 20px;
+}
+
+#inicio {
+  background-color: #00003e;
+  color: white;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+#faq {
+  color: black;
+}
+
+nav {
+  background-color: #00003e;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  font-size: 18px;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+      
+li {
+  margin: 0 10px;
+  text-align: center;
+}
+
+li img {
+  display: block;
+  margin: 0 auto 10px;
+}
+      
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+.columna {
+  float: left;
+  width: 25%;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+footer {
+  background-color: #00003e;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  bottom: 0;
+  margin:0;
+}
+
+.columna_footer {
+  flex-basis: 25%;
+  text-align: left;
+  margin: 0 10px;
+}
+
+.ul_footer{
+  display: grid;
+  list-style: square;
+  margin: 0;
+  padding: 0;
+}
+
+.li_footer{
+  margin: 0 10px;
+  text-align: left;
+}
+
+.profile {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #00003e;
+  border-radius: 4px;
+}
+
+.profile img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+.profile p {
+  text-align: left;
+  margin-top: 5px;
+}
+
+.contact {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #00003e;
+  border-radius: 4px;
+}
+
+.contact input, textarea {
+  width: 300px;
+  font-weight:bold;
+  display:inline-block;
+  font-size: 16px;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 500px;
+  padding: 20px;
+  background-color: #fff;
+  border: 3px solid #00003e;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color:black;
+}
+
+.popup_cierre_sesion {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 150px;
+  padding: 20px;
+  background-color: #00003e;
+  border: 3px solid #00003e;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color:white;
+  font-size: 20px;
+}
+
+.popup_cierre_sesion button {
+  background-color: white;
+  color:#00003e;
+}
+
+.popup_cierre_sesion button:hover {
+  background-color: blue;
+  color: white;
+}
+
+.popup h2 {
+  margin-top: 0;
+}
+
+.button-container {
+  text-align: center;
+}
+
+.button-container button {
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}

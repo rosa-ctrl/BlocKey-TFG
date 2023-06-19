@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<!-- ==== TITULO DEL DOCUMENTO ==== -->
-    	<title> BlocKey | Mi perfil de usuario</title>
+    	<title> BlocKey | Mi perfil de administrador</title>
 
     	<!-- ==== FAVICONS ==== -->
     
@@ -20,23 +20,15 @@
 	</head>
 
     <!-- ==== CUERPO PRINCIPAL ==== -->
-    <body onload="onLoadProfile();">
+    <body onload="onLoadAdminProfile();">
 
     	<!-- --- Menú de navegación --- -->
     	<nav class="nav">
             <a id="inicio" href="index.html"> BlocKey</a>
       		<ul>
-        		<li>
-                    <div><img src="static/images/caja-fuerte.png"></div>
-                    <a href="security_box.html">Mi caja fuerte</a>
-                </li>
        			<li>
-                    <div><img src="static/images/escudo.png"></div>
-                    <a href="security.html">Seguridad de mis contraseñas</a>
-                </li>
-                <li>
-                    <div><img src="static/images/support.png"></div>
-                    <a href="support.html">Ayuda</a>
+                    <div><img src="static/images/grupo.png"></div>
+                    <a href="admin_users.html">Listado de usuarios</a>
                 </li>
                 <li>
                     <div><img src="static/images/cerrar-sesion.png"></div>
@@ -53,40 +45,37 @@
     	<!-- --- Bloque de encabezado --- -->
 		<header class="header-content">
                 <h1>Perfil</h1>
-                <h2>Mis datos personales</h2>
+                <h2>Mis datos de administrador</h2>
         </header>
 
     	<!-- --- Bloque principal --- -->
         <div class="container">
             <div class="content">
-                <div class="profile" id="profile">
-                <form id="display1" name='display1'>
-                    <img src="static/images/usuario-perfil.png" alt="Foto de perfil">
-                    <div class="form-group">
-                        <label for="email1">Correo electrónico:</label>
-                        <input type="text" id="username1" name="username1">
-                    </div>
-                    <div class="form-group">
-                        <label for="password1">Contraseña:</label>
-                        <input type="text" id="password1" name="password1">
-                    </div>
-                </form>
-
-            </div>
+                <div class="profile">
+                    <form id="display1" name='display1'>
+                        <img src="static/images/administrador.png" alt="Foto de perfil">
+                        <div class="form-group">
+                            <label for="email_admin">Correo electrónico:</label>
+                            <input type="text" id="email_admin" name="email_admin">
+                        </div>
+                        <div class="form-group">
+                            <label for="password_admin">Contraseña:</label>
+                            <input type="text" id="password_admin" name="password_admin">
+                        </div>
+                    </form>
+                </div>
+                
                 <button id="botonCentrado" onclick="openEditProfile()">Editar perfil</button>
+
                 <div id="EditProfile" class="popup">
                     <h2>Editar perfil</h2>
                     <form id="edit1" name="edit1">
-                        <div class="form-group">
-                            <label for="email">Correo electrónico:</label>
-                            <input type="text" id="username" name="username" required>
-                        </div>
                         <div class="form-group">
                             <label for="password">Contraseña:</label>
                             <input type="password" id="password" name="password" required>
                         </div>
                     </form>
-                    <button onclick="guardarUser(document.edit1.username.value,document.edit1.password.value); location.reload();">Guardar cambios</button>
+                    <button onclick="guardarAdmin(document.edit1.password.value); location.reload();">Guardar cambios</button>
                     <button onclick="closeEditProfile()">Cancelar</button>
                 </div>
             </div>

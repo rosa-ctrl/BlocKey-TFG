@@ -1,167 +1,63 @@
 <!DOCTYPE html>
-<html lang="en-US" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<!-- ==== TITULO DEL DOCUMENTO ==== -->
+    	<title> BlocKey | Contáctanos </title>
 
-    <!-- ==== TITULO DEL DOCUMENTO ==== -->
-    <title>BlocKey | Contacto</title>
-
-    <!-- ==== FAVICONS ==== -->
+    	<!-- ==== FAVICONS ==== -->
     
-    <!-- ==== HOJAS DE ESTILOS ==== -->
-    <!-- --- Hojas de estilos por defecto--- -->
-    <link href="{{ url_for('static', filename='lib/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
-    <!-- --- Hojas de estilo específicas --- -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
-    <!-- --- Hojas de estilo principal --- -->
-    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
-    <link id="color-scheme" href="{{ url_for('static', filename='css/colors/default.css') }}" rel="stylesheet">
-  </head>
 
-  <!-- ==== CUERPO PRINCIPAL ==== -->
-  <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
-    <main>
-      <div class="page-loader">
-        <div class="loader">Loading...</div>
-      </div>
+    	<!-- ==== HOJAS DE ESTILOS ==== -->
+    	<!-- --- Hojas de estilo principal --- -->
+    	<link href="static/css/style.css" rel="stylesheet">
 
-      <!-- --- Menú de navegacion --- -->
-      <nav class="navbar navbar-custom navbar-fixed-top navbar-transparent" role="navigation">
+        <!-- --- Tipografía --- -->
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+	</head>
+
+    <!-- ==== CUERPO PRINCIPAL ==== -->
+    <body>
+
+    	<!-- --- Menú de navegación --- -->
+    	<nav class="nav">
+            <a id="inicio" href="index.html"> BlocKey</a>
+      		<ul>
+        		<li>
+                    <div><img src="static/images/ayuda.png"></div>
+                    <a href="faq.html">Preguntas Frecuentes</a>
+                </li>
+        		<li>
+                    <div><img src="static/images/usuario.png"></div>
+                    <a href="login_register.html">Iniciar sesión</a>
+                </li>
+      		</ul>
+    	</nav>
+
+    	<!-- --- Bloque de encabezado --- -->
+		<header class="header-content">
+                <h1>Contacta con nosotros</h1>
+                <h2>Te enviaremos un correo lo antes posible resolviendo tus preguntas.</h2>
+        </header>
+
+    	<!-- --- Bloque principal --- -->
         <div class="container">
-          <div class="navbar-header">
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="{{ url_for('index') }}">BlocKey</a>
-          </div>
-          <div class="collapse navbar-collapse" id="custom-collapse">
-            <ul class="nav navbar-nav navbar-right">
-              <li class="button"><a class="button" href="{{ url_for('faq') }}"><img src="{{ url_for('static', filename='images/faq.png') }}"/>Preguntas Frecuentes</a></li>
-              <li class="button"><a class="button" href="{{ url_for('contact') }}"><img src="{{ url_for('static', filename='images/contact.png') }}"/>Contacto</a></li>
-              <li class="button"><a class="button" href="{{ url_for('login_register') }}"><img src="{{ url_for('static', filename='images/log_in.png') }}"/>Iniciar sesión</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+            <div class="content">
+                <form class="contact">
+                    <label for="email">Tu correo electrónico:</label>
+                    <input type="email" id="email" name="email" required><br><br>
 
-      <!-- --- Bloque de encabezado --- -->
-        <section class="module bg-dark-60 faq-page-header" data-background="{{ url_for('static', filename='images/background.png') }}">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-6 col-sm-offset-3">
-                <h2 class="module-title font-alt">Contacta con nosotros</h2>
-                <div class="module-subtitle font-serif">Te enviaremos un correo lo antes posible resolviendo tus preguntas.</div>
-              </div>
-            </div>
-          </div>
-        </section>
+                    <label for="mensaje">Tu mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" required></textarea><br><br>
 
-      <!-- --- Bloque principal --- -->
-      <div class="main">
-        <section class="module" id="contact">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-6 col-sm-offset-3">
-                <h2 class="module-title font-alt">ENVÍANOS TUS PREGUNTAS</h2>
-                <div class="module-subtitle font-serif"></div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-6 col-sm-offset-3">
-                <form id="contactForm" role="form" method="post" action="php/contact.php">
-                  <div class="form-group">
-                    <label class="sr-only" for="name">Nombre</label>
-                    <input class="form-control" type="text" id="name" name="name" placeholder="Tu nombre*" required="required" data-validation-required-message="Por favor, introduce tu nombre."/>
-                    <p class="help-block text-danger"></p>
-                  </div>
-                  <div class="form-group">
-                    <label class="sr-only" for="email">Correo electrónico</label>
-                    <input class="form-control" type="email" id="email" name="email" placeholder="Tu correo electrónico*" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" required="required" data-validation-required-message="Por favor, introduce tu correo electrónico"/>
-                    <p class="help-block text-danger"></p>
-                  </div>
-                  <div class="form-group">
-                    <textarea class="form-control" rows="7" id="message" name="message" placeholder="Tu mensaje*" required="required" data-validation-required-message="Por favor, introduce tu mensaje."></textarea>
-                    <p class="help-block text-danger"></p>
-                  </div>
-                  <div class="text-center">
-                    <button class="btn btn-block btn-round btn-d" id="cfsubmit" type="submit">ENVIAR</button>
-                  </div>
+                    <button type="submit" value="Enviar">Enviar</button>
                 </form>
-                <div class="ajax-response font-alt" id="contactFormResponse"></div>
-              </div>
             </div>
-          </div>
-        </section>
-        
-        <!-- --- Footer --- -->
-        <div class="module-small bg-dark">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-3">
-                <div class="widget">
-                  <h5 class="widget-title font-alt">Sobre BlocKey</h5>
-                  <p>BlocKey es un gestor de contraseñas inclusivo, diseñado para almacenar de una forma segura las contraseñas de nuestras cuentas.</p>
-                  <p>Podrás crear contraseñas seguras sin miedo a que se te olviden.</p>
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="widget">
-                  <h5 class="widget-title font-alt">Contáctanos</h5>
-                  <ul class="icon-list">
-                    <li><a href="{{ url_for('contact') }}"> Formulario de contacto</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="widget">
-                  <h5 class="widget-title font-alt">Política de privacidad</h5>
-                  <ul class="icon-list">
-                    <li><a href="{{ url_for('privacy') }}">Términos y condiciones</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="widget">
-                  <h5 class="widget-title font-alt">Preguntas frecuentes</h5>
-                  <ul class="icon-list">
-                    <li><a href="{{ url_for('faq') }}">¿Para qué sirve BlocKey?</a></li>
-                    <li><a href="{{ url_for('faq') }}">¿Cómo puedo registrarme en BlocKey?</a></li>
-                    <li><a href="{{ url_for('faq') }}">¿Cómo puedo crear un registro con una nueva contraseña?</a></li>
-                    <li><a href="{{ url_for('faq') }}">¿Cuánto de seguras son mis contraseñas?</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr class="divider-d">
-        <footer class="footer bg-dark">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-6">
-                <p class="copyright font-alt">&copy; 2022&nbsp;<a href="{{ url_for('index') }}">BlocKey</a>, Todos los derechos reservados</p>
-              </div>
-            </div>
-          </div>
-        </footer>
-      </div>
-      <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
-    </main>
 
-    <!-- ==== JavaScripts ==== -->
-    <script src="{{ url_for('static', filename='lib/jquery/dist/jquery.js') }}"></script>
-    <script src="{{ url_for('static', filename='lib/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='lib/wow/dist/wow.js') }}"></script>
-    <script src="{{ url_for('static', filename='lib/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js') }}"></script>
-    <script src="{{ url_for('static', filename='lib/isotope/dist/isotope.pkgd.js') }}"></script>
-    <script src="{{ url_for('static', filename='lib/imagesloaded/imagesloaded.pkgd.js') }}"></script>
-    <script src="{{ url_for('static', filename='lib/flexslider/jquery.flexslider.js') }}"></script>
-    <script src="{{ url_for('static', filename='lib/owl.carousel/dist/owl.carousel.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='lib/smoothscroll.js') }}"></script>
-    <script src="{{ url_for('static', filename='lib/magnific-popup/dist/jquery.magnific-popup.js') }}"></script>
-    <script src="{{ url_for('static', filename='lib/simple-text-rotator/jquery.simple-text-rotator.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/plugins.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-  </body>
+        	<!-- --- Footer --- -->
+            <footer>
+                <p>&copy; 2023&nbsp;<a href="index.html">BlocKey</a>, Todos los derechos reservados</p>
+        	</footer>
+        </div>
+    </body>
 </html>
