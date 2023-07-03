@@ -5,9 +5,6 @@
 		<!-- ==== TITULO DEL DOCUMENTO ==== -->
     	<title> BlocKey | Análisis de seguridad </title>
 
-    	<!-- ==== FAVICONS ==== -->
-    
-
     	<!-- ==== HOJAS DE ESTILOS ==== -->
     	<!-- --- Hojas de estilo principal --- -->
     	<link href="static/css/style.css" rel="stylesheet">
@@ -23,7 +20,7 @@
 
     	<!-- --- Menú de navegación --- -->
     	<nav class="nav">
-            <a id="inicio" href="index.html"> BlocKey</a>
+            <a id="inicio"> BlocKey</a>
       		<ul>
         		<li>
                     <div><img src="static/images/usuario.png"></div>
@@ -51,40 +48,41 @@
 
     	<!-- --- Bloque de encabezado --- -->
 		<header class="header-content">
-                <h1>Análisis de seguridad</h1>
-                <h2>Nivel de seguridad de las contraseñas que tengo almacenadas en BlocKey</h2>
+            <h1>Análisis de seguridad</h1>
+            <h2>Nivel de seguridad de las contraseñas que tengo almacenadas en BlocKey</h2>
         </header>
 
     	<!-- --- Bloque principal --- -->
         <div class="container">
             <form id="fValores" name="fValores">
-            <div class="content">
-                <div class="columna">
-                    <div><img src="static/images/reused.png"></div>
-                    <h3>Contraseñas repetidas</h3>
-                    <input type="text" id="numRepes" name="numRepes" readonly/>
-                    <p>Número de contraseñas que se están utilizando en dos o más cuentas a la vez.</p>
+                <div class="content">
+                    <div class="column">
+                        <div><img src="static/images/reused.png"></div>
+                        <h3>Contraseñas repetidas</h3>
+                        <input type="text" id="numRepes" name="numRepes" readonly/>
+                        <p>Número de contraseñas que se están utilizando en dos o más cuentas a la vez.</p>
+                    </div>
+                    <div class="column">
+                        <div><img src="static/images/debility.png"></div>
+                        <h3>Contraseñas débiles</h3>
+                        <input type="text" id="numInseguras" name="numInseguras" readonly/>
+                        <p>Número de contraseñas que no son lo suficientemente seguras como para evitar el robo de información.</p>
+                    </div>
+                    <div class="column">
+                        <div><img src="static/images/unique.png"></div>
+                        <h3>Contraseñas únicas</h3>
+                        <input type="text" id="numUnicas" name="numUnicas" readonly/>
+                        <p>Número de contraseñas que solo son usadas en una cuenta y que son seguras.</p>
+                    </div>
+                    <div class="column">
+                        <div><img src="static/images/all_passwords.png"></div>
+                        <h3>Total de contraseñas</h3>
+                        <input type="text" id="numTotal" name="numTotal" readonly/>
+                        <p>Número total de contraseñas que tienes almacenadas en tu caja fuerte de BlocKey.</p>
+                    </div>
                 </div>
-                <div class="columna">
-                    <div><img src="static/images/debility.png"></div>
-                    <h3>Contraseñas débiles</h3>
-                    <input type="text" id="numInseguras" name="numInseguras" readonly/>
-                    <p>Número de contraseñas que no son lo suficientemente seguras como para evitar el robo de información.</p>
-                </div>
-                <div class="columna">
-                    <div><img src="static/images/unique.png"></div>
-                    <h3>Contraseñas únicas</h3>
-                    <input type="text" id="numUnicas" name="numUnicas" readonly/>
-                    <p>Número de contraseñas que solo son usadas en una cuenta y que son seguras.</p>
-                </div>
-                <div class="columna">
-                    <div><img src="static/images/all_passwords.png"></div>
-                    <h3>Total de contraseñas</h3>
-                     <input type="text" id="numTotal" name="numTotal" readonly/>
-                   <p>Número total de contraseñas que tienes almacenadas en tu caja fuerte de BlocKey.</p>
-                </div>
-            </div>
             </form>
+
         	<!-- --- Footer --- -->
             <footer>
                 <p>&copy; 2023&nbsp;<a href="index.html">BlocKey</a>, Todos los derechos reservados</p>

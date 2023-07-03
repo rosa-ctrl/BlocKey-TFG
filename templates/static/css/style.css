@@ -64,7 +64,7 @@ button {
 }
 
 #botonCentrado {
-  padding: 12px 20px;
+  padding: 12px 20px 12px 20px;
   background-color: #00009b;
   color: #fff;
   border: none;
@@ -165,11 +165,28 @@ a:hover{
   text-decoration: underline;
 }
 
-.columna {
+.column2 {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.column {
   float: left;
   width: 25%;
   padding: 10px;
   box-sizing: border-box;
+  text-align: center;
+}
+
+.column input {
+  width: 95%;
+  font-size: 17px;
+  padding: 8px;
+  border: 1px solid #00009b;
+  border-radius: 4px;
   text-align: center;
 }
 
@@ -297,4 +314,21 @@ th, td {
   border: 1px solid black;
   padding: 8px;
   text-align: left;
+}
+
+fieldset {
+  border-color: #00003e;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+fieldset legend {
+  font-size: 17px;
+  font-weight: bold;
+
+}
+
+fieldset p {
+  font-size: 15px;
 }

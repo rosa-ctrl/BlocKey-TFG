@@ -5,9 +5,6 @@
 		<!-- ==== TITULO DEL DOCUMENTO ==== -->
     	<title> BlocKey | Mi perfil de usuario</title>
 
-    	<!-- ==== FAVICONS ==== -->
-    
-
     	<!-- ==== HOJAS DE ESTILOS ==== -->
     	<!-- --- Hojas de estilo principal --- -->
     	<link href="static/css/style.css" rel="stylesheet">
@@ -24,7 +21,7 @@
 
     	<!-- --- Menú de navegación --- -->
     	<nav class="nav">
-            <a id="inicio" href="index.html"> BlocKey</a>
+            <a id="inicio"> BlocKey</a>
       		<ul>
         		<li>
                     <div><img src="static/images/caja-fuerte.png"></div>
@@ -52,28 +49,30 @@
 
     	<!-- --- Bloque de encabezado --- -->
 		<header class="header-content">
-                <h1>Perfil</h1>
-                <h2>Mis datos personales</h2>
+            <h1>Perfil</h1>
+            <h2>Mis datos personales</h2>
         </header>
 
     	<!-- --- Bloque principal --- -->
         <div class="container">
             <div class="content">
                 <div class="profile" id="profile">
-                <form id="display1" name='display1'>
-                    <img src="static/images/usuario-perfil.png" alt="Foto de perfil">
-                    <div class="form-group">
-                        <label for="email1">Correo electrónico:</label>
-                        <input type="text" id="username1" name="username1">
-                    </div>
-                    <div class="form-group">
-                        <label for="password1">Contraseña:</label>
-                        <input type="text" id="password1" name="password1">
-                    </div>
-                </form>
-
-            </div>
-                <button id="botonCentrado" onclick="openEditProfile()">Editar perfil</button>
+                    <form id="display1" name='display1'>
+                        <img src="static/images/usuario-perfil.png" alt="Foto de perfil">
+                        <div class="form-group">
+                            <label for="email1">Correo electrónico:</label>
+                            <input type="text" id="username1" name="username1">
+                        </div>
+                        <div class="form-group">
+                            <label for="password1">Contraseña:</label>
+                            <input type="text" id="password1" name="password1">
+                        </div>
+                    </form>
+                </div>
+                
+                <button id="botonCentrado" onclick="openEditProfile()"><img style="margin-right: 15px;" src="static/images/editar.png">Editar perfil</button>
+            
+                <!-- Pop up para editar el perfil del usuario-->
                 <div id="EditProfile" class="popup">
                     <h2>Editar perfil</h2>
                     <form id="edit1" name="edit1">

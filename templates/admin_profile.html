@@ -5,9 +5,6 @@
 		<!-- ==== TITULO DEL DOCUMENTO ==== -->
     	<title> BlocKey | Mi perfil de administrador</title>
 
-    	<!-- ==== FAVICONS ==== -->
-    
-
     	<!-- ==== HOJAS DE ESTILOS ==== -->
     	<!-- --- Hojas de estilo principal --- -->
     	<link href="static/css/style.css" rel="stylesheet">
@@ -24,7 +21,7 @@
 
     	<!-- --- Menú de navegación --- -->
     	<nav class="nav">
-            <a id="inicio" href="index.html"> BlocKey</a>
+            <a id="inicio"> BlocKey</a>
       		<ul>
        			<li>
                     <div><img src="static/images/grupo.png"></div>
@@ -44,8 +41,8 @@
 
     	<!-- --- Bloque de encabezado --- -->
 		<header class="header-content">
-                <h1>Perfil</h1>
-                <h2>Mis datos de administrador</h2>
+            <h1>Perfil</h1>
+            <h2>Mis datos de administrador</h2>
         </header>
 
     	<!-- --- Bloque principal --- -->
@@ -65,8 +62,9 @@
                     </form>
                 </div>
                 
-                <button id="botonCentrado" onclick="openEditProfile()">Editar perfil</button>
+                <button id="botonCentrado" onclick="openEditProfile()"><img style="margin-right: 15px;" src="static/images/editar.png">Editar perfil</button>
 
+                <!-- Pop up para editar la contraseña de administrador-->
                 <div id="EditProfile" class="popup">
                     <h2>Editar perfil</h2>
                     <form id="edit1" name="edit1">

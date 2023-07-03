@@ -5,15 +5,15 @@
 		<!-- ==== TITULO DEL DOCUMENTO ==== -->
     	<title> BlocKey | Listado de usuarios </title>
 
-    	<!-- ==== FAVICONS ==== -->
-    
-
     	<!-- ==== HOJAS DE ESTILOS ==== -->
     	<!-- --- Hojas de estilo principal --- -->
     	<link href="static/css/style.css" rel="stylesheet">
 
         <!-- --- Tipografía --- -->
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+        <!-- --- JavaScript --- -->
+        <script src="static/js/function.js"></script>
 	</head>
 
     <!-- ==== CUERPO PRINCIPAL ==== -->
@@ -21,7 +21,7 @@
 
     	<!-- --- Menú de navegación --- -->
     	<nav class="nav">
-            <a id="inicio" href="index.html"> BlocKey</a>
+            <a id="inicio"> BlocKey</a>
       		<ul>
        			<li>
                     <div><img src="static/images/admin_perfil.png"></div>
@@ -41,8 +41,8 @@
 
     	<!-- --- Bloque de encabezado --- -->
 		<header class="header-content">
-                <h1>Listado de usuarios</h1>
-                <h2>Aquí encontrarás todos los usuarios que tienen una cuenta en BlocKey.</h2>
+            <h1>Listado de usuarios</h1>
+            <h2>Aquí encontrarás todos los usuarios que tienen una cuenta en BlocKey</h2>
         </header>
 
     	<!-- --- Bloque principal --- -->
@@ -52,22 +52,26 @@
                     <thead>
                         <tr>
                             <th>Usuario de BlocKey</th>
-                            <th></th>
-                            <th></th>
+                            <th>Modificación de usuario</th>
+                            <th>Baja de usuario</th>
                         </tr>
                     </thead>
                     <tbody>
                        <script>
                             if(sessionStorage['valorEmail'] != undefined) {
                                 document.write('<tr><td>'+sessionStorage['valorEmail'].toString()+'</td>');
-                                document.write('<td><button onclick=accionBoton1(this)>Resetear Contraseña</button></td><td><button onclick="accionBoton2(this)">Eliminar</button></td>');
+                                document.write('<td><button onclick=openResetPws()>Resetear Contraseña</button></td><td><button onclick="borrarUser()">Eliminar usuario</button></td>');
                              }
-                             
-                            
-                         </script>
+                        </script>
                     </tbody>
                   </table>
-                <button onclick="agregarFila()">Añadir usuario</button>
+            </div>
+
+            <!-- Pop up para editar un usuario-->
+            <div id="resetPws" class="popup_cierre_sesion">
+                <p>¿Quieres enviar el código de recuperación al usuario?</p>
+                <button id="salir" onclick="closeResetPws()">¡Sí!</button>
+                <button onclick="closeResetPws()">Cancelar</button>
             </div>
 
         	<!-- --- Footer --- -->

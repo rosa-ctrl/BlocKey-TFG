@@ -14,7 +14,20 @@ function openAddPsw() {
 }
 
 function closeAddPsw() {
+  document.getElementById('caracteristicas').style.display = 'none';
   var popup = document.getElementById("AddPsw");
+  popup.style.display = "none";
+}
+
+function openEditRegister(pPos) {
+  document.fEdit.name_register_ed.value = sessionStorage['usersValue'+pPos];
+  document.fEdit.password_ed.value = sessionStorage['passwdsValue'+pPos];
+  document.fEdit.pos.value = pPos;
+  document.getElementById("editRegister").style.display = "block";
+}
+
+function closeEditRegister() {
+  var popup = document.getElementById("editRegister");
   popup.style.display = "none";
 }
 
@@ -39,21 +52,26 @@ function addrow_AddPsw(name_register, pass_register) {
     sessionStorage['usersValue1'] = name_register;
     sessionStorage['passwdsValue1'] = pass_register;
     sessionStorage['typeValue1'] = 'Contraseña';
+    sessionStorage['dateValue1'] = obtenerFechaActual();
   } else if(sessionStorage['usersValue2'] == undefined) {
     sessionStorage['usersValue2'] = name_register;
     sessionStorage['passwdsValue2'] = pass_register;
     sessionStorage['typeValue2'] = 'Contraseña';
+    sessionStorage['dateValue2'] = obtenerFechaActual();
   } else if(sessionStorage['usersValue3'] == undefined) {
     sessionStorage['usersValue3'] = name_register;
     sessionStorage['passwdsValue3'] = pass_register;
     sessionStorage['typeValue3'] = 'Contraseña';
+    sessionStorage['dateValue3'] = obtenerFechaActual();
   } else if(sessionStorage['usersValue4'] == undefined) {
     sessionStorage['usersValue4'] = name_register;
     sessionStorage['passwdsValue4'] = pass_register;
     sessionStorage['typeValue4'] = 'Contraseña';
+    sessionStorage['dateValue4'] = obtenerFechaActual();
   } else {
-    alert('No me caben mas ;-)')
+    alert('¡No puedo almacenar más registros!')
   }
+  document.getElementById('caracteristicas').style.display = 'none';
 
  location.reload();
 }
@@ -62,26 +80,29 @@ function addrow_AddInf(name_register, value_register) {
   if(sessionStorage['usersValue1'] == undefined) {
     sessionStorage['usersValue1'] = name_register;
     sessionStorage['passwdsValue1'] = value_register;
-    sessionStorage['typeValue1'] = 'Info';
+    sessionStorage['typeValue1'] = 'Información';
+    sessionStorage['dateValue1'] = obtenerFechaActual();
   }else if(sessionStorage['usersValue2'] == undefined) {
     sessionStorage['usersValue2'] = name_register;
     sessionStorage['passwdsValue2'] = value_register;
-    sessionStorage['typeValue2'] = 'Info';
+    sessionStorage['typeValue2'] = 'Información';
+    sessionStorage['dateValue2'] = obtenerFechaActual();
   }else if(sessionStorage['usersValue3'] == undefined) {
     sessionStorage['usersValue3'] = name_register;
     sessionStorage['passwdsValue3'] = value_register;
-    sessionStorage['typeValue3'] = 'Info';
+    sessionStorage['typeValue3'] = 'Información';
+    sessionStorage['dateValue3'] = obtenerFechaActual();
   }else if(sessionStorage['usersValue4'] == undefined) {
     sessionStorage['usersValue4'] = name_register;
     sessionStorage['passwdsValue4'] = value_register;
-    sessionStorage['typeValue4'] = 'Info';
+    sessionStorage['typeValue4'] = 'Información';
+    sessionStorage['dateValue4'] = obtenerFechaActual();
   } else {
-    alert('No me caben mas ;-)')
+    alert('¡No puedo almacenar más registros!')
   }
 
   location.reload();
 }
-
 
 function borrarReg(pPos) {
   sessionStorage.removeItem('usersValue'+pPos);
@@ -90,11 +111,11 @@ function borrarReg(pPos) {
   location.reload();
 }
 
-function editarReg(pPos) {
-  document.fEdit.name_register_ed.value = sessionStorage['usersValue'+pPos];
-  document.fEdit.password_ed.value = sessionStorage['passwdsValue'+pPos];
-  document.fEdit.pos.value = pPos;
-  document.getElementById("EditInf").style.display = "block";
+function openRegister(pPos){
+  document.fShow.name_register_show.value = sessionStorage['usersValue'+pPos];
+  document.fShow.secret_show.value = sessionStorage['passwdsValue'+pPos];
+  document.fShow.pos.value = pPos;
+  document.getElementById("showRegister").style.display = "block";
 }
 
 function openAddInf() {
@@ -107,11 +128,16 @@ function closeAddInf() {
   popup.style.display = "none";
 }
 
-function editRegInf() {
+function editReg() {
   var pPos = document.fEdit.pos.value;
   sessionStorage['usersValue'+pPos] = document.fEdit.name_register_ed.value;
   sessionStorage['passwdsValue'+pPos] = document.fEdit.password_ed.value;
   location.reload();    
+}
+
+function closeShowRegister() {
+  var popup = document.getElementById("showRegister");
+  popup.style.display = "none";
 }
 
 function guardarUser(pEmail, pPassword) {
@@ -156,6 +182,26 @@ function validarUser(email, password) {
   }
 }
 
+function borrarUser() {
+  sessionStorage.removeItem('valorEmail');
+  location.reload();
+}
+
+function closeEditRegister() {
+  var popup = document.getElementById("editRegister");
+  popup.style.display = "none";
+}
+
+function openResetPws() {
+  var popup = document.getElementById("resetPws");
+  popup.style.display = "block";
+}
+
+function closeResetPws() {
+  var popup = document.getElementById("resetPws");
+  popup.style.display = "none";
+}
+
 function confirmacionSalida() {
   var popup = document.getElementById("cerrar_sesion");
   popup.style.display = "block";
@@ -173,10 +219,22 @@ function closeConfirmacionSalidaSi() {
 }
 
 function generarPassword() {
-  alert("hola");
-  var caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  var longitud = 10;
+  var longitud = document.getElementById("tentacles").value;
+
+  var caracteres = "abcdefghijklmnopqrstuvwxyz";
   var contrasena = "";
+
+  if (document.getElementById("mayus").checked) {
+    caracteres += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  }
+
+  if (document.getElementById("number").checked) {
+    caracteres += "123456789";
+  }
+
+  if (document.getElementById("specials").checked) {
+    caracteres += "$%&=?¿";
+  }
 
   for (var i = 0; i < longitud; i++) {
     var indice = Math.floor(Math.random() * caracteres.length);
@@ -286,5 +344,12 @@ function calculateBlockey () {
   document.fValores.numTotal.value = numPasswd;    
 }
 
-function desplegarContrasenaAleatoria() {
+function mostrarLogIn(){
+  document.getElementById('register').style.display = 'none';
+  document.getElementById('pre_log_in').style.display = 'none';
+  document.getElementById('log_in').style.display = 'block';
+}
+
+function mostrarCaracteristicas(){
+  document.getElementById('caracteristicas').style.display = 'block';
 }
