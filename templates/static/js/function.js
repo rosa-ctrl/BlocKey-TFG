@@ -262,14 +262,14 @@ function checkPasswordStrength(password, alerts) {
   if (password.match(/[a-z]/) && password.match(/[A-Z]/)) {
     strength += 1;
   } else if (alerts == 1) {
-    alert('Hay que usar al menos una mayuscula y una minuscula');
+    alert('Hay que usar al menos una mayúscula y una minúscula');
   }
 
   // Check for numbers
   if (password.match(/\d/)) {
     strength += 1;
   } else if (alerts == 1) {
-    alert('Hay que usar al menos un nunero.');
+    alert('Hay que usar al menos un número.');
   }
 
   // Check for special characters
